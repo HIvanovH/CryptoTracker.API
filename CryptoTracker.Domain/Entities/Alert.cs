@@ -16,6 +16,10 @@ namespace CryptoTracker.Domain.Entities
 
         public Guid UserId { get; set; }
 
+        public User User { get; set; } = null!;
+
         public Guid AssetId { get; set; }
+
+        public Asset Asset { get; set; } = null!;
     }
 }
