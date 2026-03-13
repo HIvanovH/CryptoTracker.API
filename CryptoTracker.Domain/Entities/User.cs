@@ -8,7 +8,7 @@
 
         public required string Email { get; set; }
 
-        public string GoogleId { get; set; }
+        public required string GoogleId { get; set; }
 
         public DateTime CreatedAt { get; set; }
     }
