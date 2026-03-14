@@ -1,5 +1,6 @@
 ﻿using CryptoTracker.Application.Common.Interfaces;
 using CryptoTracker.Domain.Entities;
+using CryptoTracker.Domain.Enums;
 using MediatR;
 
 namespace CryptoTracker.Application.Features.Alerts.Commands.CreateAlert
@@ -22,12 +23,13 @@ namespace CryptoTracker.Application.Features.Alerts.Commands.CreateAlert
                 AssetId = request.AssetId,
                 TargetPrice = request.TargetPrice,
                 Direction = request.Direction,
+                Status = AlertStatus.Active,
                 CreatedAt = DateTime.UtcNow
             };
 
             _context.Alerts.Add(alert);
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return alert.Id;
         }

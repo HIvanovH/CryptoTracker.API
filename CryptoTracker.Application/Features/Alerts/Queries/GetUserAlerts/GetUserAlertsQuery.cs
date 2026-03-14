@@ -1,7 +1,7 @@
 ﻿using CryptoTracker.Domain.Entities;
 using MediatR;
 
-namespace CryptoTracker.Application.Features.Assets.Queries.GetAssets
+namespace CryptoTracker.Application.Features.Alerts.Queries.GetUserAlerts
 {
     public record GetUserAlertsQuery : IRequest<List<Alert>>
     {
