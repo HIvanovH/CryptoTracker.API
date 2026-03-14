@@ -3,7 +3,7 @@ using CryptoTracker.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CryptoTracker.Application.Features.Assets.Queries.GetAssets
+namespace CryptoTracker.Application.Features.Alerts.Queries.GetUserAlerts
 {
     public class GetUserAlertsQueryHandler : IRequestHandler<GetUserAlertsQuery, List<Alert>>
     {
@@ -16,7 +16,7 @@ namespace CryptoTracker.Application.Features.Assets.Queries.GetAssets
 
         public async Task<List<Alert>> Handle(GetUserAlertsQuery request, CancellationToken cancellationToken)
         {
-            List<Alert>  alerts = await _context.Alerts
+            List<Alert> alerts = await _context.Alerts
                 .Where(a => a.UserId == request.UserId)
                 .ToListAsync(cancellationToken);
 
