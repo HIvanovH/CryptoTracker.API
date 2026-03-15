@@ -32,6 +32,13 @@ namespace CryptoTracker.Infrastructure.Persistance
             modelBuilder.Entity<Asset>()
                 .Property(a => a.CurrentPrice)
                 .HasPrecision(18, 8);
+
+            modelBuilder.Entity<Asset>().HasData(
+                new Asset { Id = Guid.NewGuid(), Symbol = "BTC", Name = "Bitcoin", CurrentPrice = 50000m, LastUpdated = DateTime.UtcNow },
+                new Asset { Id = Guid.NewGuid(), Symbol = "ETH", Name = "Ethereum", CurrentPrice = 3000m, LastUpdated = DateTime.UtcNow },
+                new Asset { Id = Guid.NewGuid(), Symbol = "SOL", Name = "Solana", CurrentPrice = 150m, LastUpdated = DateTime.UtcNow }
+            );
+
         }
     }
 }
